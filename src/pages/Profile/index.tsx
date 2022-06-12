@@ -1,9 +1,10 @@
 import { Button } from '@mantine/core';
-import ShowCollabsButton from 'components/ShowCollabsButton';
+import ShowCollabsButton from '../../components/ShowCollabsButton';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import authenticatedRoute from '../../components/AuthenticatedRoute'
+import publicRoute from '../../components/PublicRoute'
 
 
 const Profile: NextPage = () => {
@@ -58,4 +59,4 @@ const Profile: NextPage = () => {
 	);
 };
 
-export default authenticatedRoute(Profile, {pathAfterFailure: '/'})
+export default publicRoute(Profile, {pathAfterFailure: '/'})

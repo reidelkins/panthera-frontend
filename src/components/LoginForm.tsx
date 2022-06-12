@@ -2,7 +2,7 @@ import { TextInput, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useAuth } from 'utils/Auth';
+import { useAuth } from '../utils/Auth';
 
 function LoginForm() {
   const form = useForm({

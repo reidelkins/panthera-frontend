@@ -17,6 +17,22 @@ const ShowCollabsButton = () => {
 		})
 	}
 
+	
+	const requestOptions = {
+		
+	};
+	const respondToRequest = async (values) => {
+		const response = await (await fetch('api/hello', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ requestTo: values[0], requestFrom: values[1], wlSpots: values[2], accepted: values[3]})
+		})).json();
+		console.log("1")
+		console.log(response);
+		console.log("2")
+	}
+
+
 	return (
 		
         <div >
@@ -25,7 +41,11 @@ const ShowCollabsButton = () => {
 					<ul>
 					<li>From   To   WL Spots Requested</li>
 					{collabs.map(collab => (
-						<li key={collab.created_at}>{collab.requestFrom} {collab.requestTo} {collab.wlSpots}</li>
+						<li>
+							<h1 key={collab.created_at}>{collab.requestFrom} {collab.requestTo} {collab.wlSpots}</h1>
+							<Button onClick={()=>respondToRequest([collab.requestTo, collab.requestFrom, collab.wlSpots, true])}>Accept</Button>
+							<Button onClick={()=>respondToRequest([collab.requestTo, collab.requestFrom, collab.wlSpots, false])}>Deny</Button>
+						</li>
 					))}
 					</ul>
 				)}

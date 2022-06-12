@@ -1,7 +1,7 @@
-import authenticatedRoute from "components/AuthenticatedRoute";
+import authenticatedRoute from "../components/AuthenticatedRoute";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useAuth } from "utils/Auth";
+import { useAuth } from "../utils/Auth";
 
 const Home: NextPage = (props) => {
   const auth = useAuth()
