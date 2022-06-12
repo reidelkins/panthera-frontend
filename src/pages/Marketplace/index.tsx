@@ -11,6 +11,7 @@ const Projects = ({ elements }: { elements: any[] }) => {
 		<tr key={element.user} style={{ height: '100px' }}>
 			<td>{element.user}</td>
             <td>{element.twitter_handle}</td>
+			<td>{element.discord_server}</td>
 			<td style={{ position: 'relative' }}>
 				<div
 					style={{
@@ -23,9 +24,8 @@ const Projects = ({ elements }: { elements: any[] }) => {
 					}}
 				></div>
 			</td>
-			<td>{element.discord_server}</td>
 			<td>{element.description}</td>
-			<td><RequestCollabButton /></td>
+			<td><RequestCollabButton elements={[element.user]}/></td>
 		</tr>
 	));
 
