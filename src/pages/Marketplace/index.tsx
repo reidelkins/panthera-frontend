@@ -2,8 +2,9 @@ import { Table } from '@mantine/core';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import RequestCollabButton from 'components/RequestCollabButton';
+import RequestCollabButton from '../../components/RequestCollabButton';
 import authenticatedRoute from '../../components/AuthenticatedRoute'
+import publicRoute from '../../components/PublicRoute'
 
 const Projects = ({ elements }: { elements: any[] }) => {
 	const rows = elements.map((element, index) => (
@@ -68,4 +69,4 @@ const Marketplace: NextPage = () => {
 	);
 };
 
-export default authenticatedRoute(Marketplace, {pathAfterFailure: '/'})
+export default publicRoute(Marketplace, {pathAfterFailure: '/'})
